@@ -35,6 +35,9 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
     implementation "com.firebase:firebase-jobdispatcher:$firebase_jobdispatcher_version"
 
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+
     // Instrumentation dependencies use androidTestCompile"
     // (as opposed to testCompile for local unit tests run in the JVM"
     androidTestImplementation "junit:junit:$junit_version"
