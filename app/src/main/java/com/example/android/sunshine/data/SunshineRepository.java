@@ -17,13 +17,14 @@
 package com.example.android.sunshine.data;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
 import com.example.android.sunshine.AppExecutors;
 import com.example.android.sunshine.data.database.WeatherDao;
 import com.example.android.sunshine.data.database.WeatherEntry;
 import com.example.android.sunshine.data.network.WeatherNetworkDataSource;
+
+import java.util.Date;
 
 /**
  * Handles data operations in Sunshine. Acts as a mediator between {@link WeatherNetworkDataSource}
@@ -87,6 +88,10 @@ public class SunshineRepository {
     /**
      * Database related operations
      **/
+    public LiveData<WeatherEntry> getWeatherByDate(Date date) {
+        initializeData();
+        return mWeatherDao.getWeatherByDate(date);
+    }
 
     /**
      * Deletes old weather data because we don't need to keep multiple days' data
