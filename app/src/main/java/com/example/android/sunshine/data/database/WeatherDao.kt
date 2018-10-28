@@ -21,6 +21,6 @@ interface WeatherDao {
     @Query("DELETE FROM weather WHERE date < :date")
     fun deleteOldData(date: Date)
 
-    @Query("SELECT * FROM weather WHERE date > :date")
-    fun getCurrentWeatherForecasts(date: Date): LiveData<List<WeatherEntry>>
+    @Query("SELECT id, weatherIconId, date, min, max FROM weather WHERE date > :date")
+    fun getCurrentWeatherForecasts(date: Date): LiveData<List<ListWeatherEntry>>
 }
